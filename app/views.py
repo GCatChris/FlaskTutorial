@@ -4,7 +4,14 @@ import socket
 @app.route('/')
 @app.route('/index')
 def index():
-	host = socket.gethostname()
-	ip = socket.gethostbyname(host)
-	output = "Hello %s from %s" % (host, ip)
-	return output
+	user = {'nickname': 'Chris'} #Fake user
+	return '''
+<html>
+	<head>
+		<title>Home Page</title>
+	</head>
+	<body>
+		<h1>Hello, ''' + user['nickname'] + '''</h1>
+	</body>
+</html>
+'''
