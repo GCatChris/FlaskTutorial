@@ -1,6 +1,10 @@
 <html>
 	<head>
-		<title>{{ title }} - microblog</title>
+		{% if title %}
+		<title>{{ title }} - GCatCode</title>
+		{% else %}
+		<title>Welcome to GCatCode</title>
+		{% endif %}
 	</head>
 	<body>
 		<h1>Hello, {{ user.nickname }}!</h1>
