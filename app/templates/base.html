@@ -1,14 +1,23 @@
 <html>
-	<head>
-		{% if title %}
-		<title>{{ title }} - GCatCode</title>
-		{% else %}
-		<title>Welcome to GCatCode</title>
-		{% endif %}
-	</head>
-	<body>
-		<div>GCatCode: <a href="/index">Home</a></div>
-		<hr>
-		{% block content %}{% endblock %}
-	</body>
+  <head>
+    {% if title %}
+    <title>{{ title }} - GCatCode</title>
+    {% else %}
+    <title>GCatCode</title>
+    {% endif %}
+  </head>
+  <body>
+    <div>GCatCode: <a href="/index">Home</a></div>
+    <hr>
+    {% with messages = get_flashed_messages() %}
+      {% if messages %}
+        <ul>
+        {% for message in messages %}
+            <li>{{ message }} </li>
+        {% endfor %}
+        </ul>
+      {% endif %}
+    {% endwith %}
+    {% block content %}{% endblock %}
+  </body>
 </html>
